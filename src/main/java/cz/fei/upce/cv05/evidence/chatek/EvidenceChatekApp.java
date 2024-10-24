@@ -6,22 +6,23 @@ public class EvidenceChatekApp {
 
     public static void main(String[] args) {
         // Konstanty pro definovani jednotlivych operaci (pouze pro cisty kod)
-        final int KONEC_PROGRAMU = 0;
-        final int VYPIS_CHATEK = 1;
-        final int VYPIS_KONKRETNI_CHATKU = 2;
-        final int PRIDANI_NAVSTEVNIKU = 3;
-        final int ODEBRANI_NAVSTEVNIKU = 4;
-        final int CELKOVA_OBSAZENOST = 5;
-        final int VYPIS_PRAZDNE_CHATKY = 6;
+       static final int KONEC_PROGRAMU = 0;
+       static final int VYPIS_CHATEK = 1;
+       static final int VYPIS_KONKRETNI_CHATKU = 2;
+       static final int PRIDANI_NAVSTEVNIKU = 3;
+       static final int ODEBRANI_NAVSTEVNIKU = 4;
+       static final int CELKOVA_OBSAZENOST = 5;
+       static final int VYPIS_PRAZDNE_CHATKY = 6;
 
-        final int VELIKOST_KEMPU = 5;
-        final int MAX_VELIKOST_CHATKY = 10;
+       static final int VELIKOST_KEMPU = 5;
+       static final int MAX_VELIKOST_CHATKY = 10;
 
-        Scanner scanner = new Scanner(System.in);
+        
 
         // Definovani pole podle velikosti kempu (poctu chatek)
-        int[] chatky = new int[VELIKOST_KEMPU];
-        int operace;
+        static int[] chatky = new int[VELIKOST_KEMPU];
+        static Scanner scanner = new Scanner(System.in);
+       static int operace;
 
         do {
             System.out.println("""
@@ -43,10 +44,7 @@ public class EvidenceChatekApp {
             switch (operace) {
                 case VYPIS_CHATEK -> {
 
-                    // Projdi cele pole od <0, VELIKOST) a vypis kazdy index
-                    for (int i = 0; i < chatky.length; i++) {
-                        System.out.println("Chatka [" + (i + 1) + "] = " + chatky[i]);
-                    }
+                vypis_chatek();
                 }
 
                 case VYPIS_KONKRETNI_CHATKU -> {
@@ -118,6 +116,14 @@ public class EvidenceChatekApp {
                     System.err.println("Neplatna volba");
                 }
             }
-        } while (operace != 0);
+        }
+
+    private void vypis_chatek() {
+        // Projdi cele pole od <0, VELIKOST) a vypis kazdy index
+        for (int i = 0; i < chatky.length; i++) {
+            System.out.println("Chatka [" + (i + 1) + "] = " + chatky[i]);
+        }
+    }
+while (operace != 0);
     }
 }
